@@ -1,106 +1,147 @@
+<div align="center">
+
+<img src=".github/banner.png" alt="CarbonCopy — Real-time folder backup for Windows" width="100%">
+
 # CarbonCopy
 
-**Real-time folder backup for Windows.** CarbonCopy quietly mirrors the folders you care about to up to three destinations — an external drive, a network drive, another folder — and keeps them in sync the moment files change. It runs in the system tray and stays out of your way.
+### Real-time folder backup for Windows
 
-> Made by [KVRNL](https://kvrnl.io)
+<a href="https://github.com/KVRNL/carbon-copy/releases/latest"><img alt="Latest version" src="https://img.shields.io/github/v/release/KVRNL/carbon-copy?display_name=tag&label=version&color=F5A623&labelColor=0d0d0f&style=for-the-badge"></a>
+<a href="https://github.com/KVRNL/carbon-copy/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/KVRNL/carbon-copy/total?label=downloads&color=F5A623&labelColor=0d0d0f&style=for-the-badge"></a>
+<img alt="Platform" src="https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0d0d0f?style=for-the-badge&labelColor=0d0d0f">
+<img alt="Price" src="https://img.shields.io/badge/price-FREE-F5A623?style=for-the-badge&labelColor=0d0d0f">
+<a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Proprietary%20Freeware-0d0d0f?style=for-the-badge&labelColor=0d0d0f"></a>
+
+<br>
+
+Mirrors the folders you choose to up to three backup drives the moment anything changes. Deleted files stay recoverable, and it runs quietly in your system tray.
+
+### **[⬇&nbsp; Download CarbonCopy — free at kvrnl.io](https://kvrnl.io/products/carbon-copy/)**
+
+</div>
+
+<br>
 
 ---
 
 ## What it does
 
-- **Live mirroring** — the instant you save, rename, or delete a file in a watched folder, the change is copied to your backups (usually within about a second).
-- **Up to three destinations** — keep a copy on, say, an external SSD *and* a network drive, so you always have a spare. Each folder you protect can go to any combination of them.
-- **Mirror or Archive, per folder** — Mirror keeps the backup matching the folder. Archive means the backup only ever grows, so nothing you've ever had can disappear.
-- **Knows your drives by hardware ID** — if a drive comes back on a different letter, CarbonCopy recognises it and carries on. If a *different* drive takes that letter, it refuses to write to it and asks you.
-- **Follows folders that move** — rename or move a folder you're protecting and CarbonCopy notices, tells you where it went, and offers to keep going. Your existing backup stays exactly where it is.
-- **A ceiling on removals** — if a background check ever wants to remove far more than usual, it stops, touches nothing, shows you the list, and asks first.
-- **Recoverable deletes** — anything removed from a backup goes to a dated Recycle Bin folder inside the destination, kept for a retention period you choose, and browsable and restorable from inside the app.
-- **Verify backup** — check every file against the backup and get a straight answer.
-- **Tells you when something's wrong** — including the catch-all: if a folder hasn't backed up in a week, for any reason at all, you hear about it.
-- **Automatic updates** — checks for new versions hourly and installs them silently in the background.
-- **Tray app** — lives by the clock, starts with Windows (optional), and never nags you.
+CarbonCopy watches the folders you care about and instantly mirrors any change to up to three backup destinations — an external drive, a network drive, or another folder. A background safety-net sweep catches anything missed while you were offline.
 
-CarbonCopy is a **one-way mirror**: your source folders are the source of truth and are only ever **read** — never modified, renamed, or deleted, and nothing is ever written inside them. All writing and deleting happens inside the destination folders.
+Deleted files are kept in a dated recycle bin so accidents are recoverable, and your source folders are only ever read, never modified. Free to use — claim your license key and download it here.
+
+## Features
+
+- **Real-time mirroring, ~1-second sync**
+- **Up to three backup destinations**
+- **Recoverable deletes with a Recycle Bin**
+- **Source folders are never modified**
+
+## Download &amp; install
+
+CarbonCopy is **completely free**. Downloads run through a free KVRNL account so every
+install gets its own license key.
+
+1. Go to **[kvrnl.io/products/carbon-copy/](https://kvrnl.io/products/carbon-copy/)**
+2. Create a free account — email verification, nothing else
+3. Claim your license key — instant, no waiting
+4. Download and install
+
+> [!NOTE]
+> CarbonCopy isn't code-signed yet, so Windows SmartScreen may warn you on first run.
+> Click **More info → Run anyway**. Code signing is on the roadmap.
+
+## Your license key
+
+- **Free, one per product**, issued from your KVRNL account.
+- **A key activates on one machine.** The first device to activate it claims it.
+- **Switching computers?** Hit **Release device** on your
+  [account page](https://kvrnl.io/account/) and the key is free to use again.
+- Keys are checked over HTTPS at launch. See [Privacy](#privacy).
+
+## Requirements
+
+- **Windows 10 or 11** (64-bit)
+- A free [KVRNL account](https://kvrnl.io/signup/) for your license key
+
+## Privacy
+
+CarbonCopy sends KVRNL only what's needed to validate your license: **the key, the
+product name, and a hardware ID**. No telemetry, no analytics, no tracking, and
+none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)**
+
+## What's new
+
+**v2.0.13** — 2026-08-14
+  - Fixed tooltips running off the side of the screen. The explanation text wasn't wrapping at all, so longer ones stretched into a single endless line and got cut off before you could finish reading them. They now wrap to a readable width and break into short paragraphs.
+  - Fixed the destination dropdown in the Recycle Bin being white text on white — unreadable. Windows draws drop-downs in its own light colours unless an app replaces them outright, which CarbonCopy hadn't. The same fix covers the file list's column headers and row highlighting.
+
+**v2.0.12** — 2026-08-14
+  - Fixed the "hasn't backed up in X days" warning that wouldn't go away. A single file that couldn't be copied — a mail file, a browser database, anything another program had open — was enough to stop CarbonCopy ever recording a successful backup again. The warning then counted up forever on a folder that was, in fact, being backed up perfectly every half hour, and nothing you did would clear it. It now clears itself the moment a backup succeeds.
+  - Fixed the same warning coming straight back after restarting. The time of each successful backup was never actually being saved to disk, so every restart loaded the old date and put the warning back up.
+  - Files that can't be copied are now reported on their own, as a plain warning that names how many and points you at the log — instead of being invisible and quietly poisoning the health of the whole folder.
+  - Warnings can now be dismissed. Advisory items have an X, and dismissing one keeps it away for a week rather than for the two minutes it took the next health check to put it back. Anything that means a folder genuinely isn't protected — a disconnected drive, a missing folder — deliberately can't be hidden.
+  - Completely rebuilt the Settings screen. It was one long scroll where the two settings anyone actually changes sat in the same pile as the deletion ceiling and the debounce timer. It's now organised into pages down the side — General, Backups, Deleted files, Safety limits, Speed, Your setup — grouped by what you're trying to do rather than by which part of the code they belong to.
+  - Every setting now explains itself. Hover anything and a tooltip appears immediately, in plain English, telling you what it does and how to choose — including what the sensible default is and when you'd want something different.
+  - New How to use page inside Settings, replacing the separate help window, so the instructions no longer lock the rest of the app while you read them.
+  - New Report a bug page. Describe the problem in your own words and it goes straight to KVRNL, with your version, drive status, settings and recent log entries attached automatically — so a report doesn't turn into twenty questions. The technical details are optional and you can see exactly what's included.
+  - New About page with your version, the machine your licence is tied to, and links to your account.
+
+**v2.0.11** — 2026-07-24
+  - Fixed the app freezing after adding a folder. The first backup was running on the same thread that draws the window, so CarbonCopy locked up with a spinning cursor until it finished — which on a large folder could be several minutes. It now runs in the background as it always should have, and the window stays responsive throughout.
+  - Fixed the same freeze in every other place it could happen: turning a destination on, changing where a folder backs up to, switching between Mirror and Archive, removing a folder and its copies, and browsing the Recycle Bin.
+  - Setting up a destination and opening the add-folder window no longer stall while they check drives. Anything that reads from a disk now happens in the background, so a slow or disconnected network drive can't hold the window hostage.
+
+**v2.0.10** — 2026-07-24
+  - Mirror and Archive are now properly explained before you pick one. Clicking the setting used to flip it the instant you touched it — it now opens a window laying out both options, what each one does to your files, and which one this folder currently uses, with a Save and a Cancel.
+  - Switching a folder from Archive back to Mirror now tells you what it would cost first — it counts the files the archive has been holding on to that your folder no longer has, and shows you the number before you commit.
+  - The Protection screen now spells the setting out ('Mirror — remove it from the backup too') instead of showing a single word you'd have to guess at.
+  - Added a note making clear that CarbonCopy's Mirror is not the same thing as Google Drive's 'Mirror files' setting. They share a word and mean completely different things — Google's decides whether your cloud files are stored on your PC, ours decides what happens to a backup copy when you delete the original.
+  - CarbonCopy now warns you if you pick a cloud folder (Google Drive, OneDrive, Dropbox) to back up. Those files often live online rather than on your PC, so copying them means downloading your entire cloud account — worth knowing before it starts, not after. It also warns if you try to use one as a destination, where everything you back up would get uploaded again.
+  - Rewrote the in-app help. It was still describing two destinations and buttons that no longer exist.
+
+**v2.0.9** — 2026-07-24
+  - New Protection screen. Instead of a settings page, the app now opens on a plain answer to 'am I actually backed up?' — every folder you protect, its status at every destination, and when it was last verified.
+  - Adding a folder now shows you what's about to happen first. You pick the folder, pick where it goes (nothing is ticked for you any more), and then see the file count, the size, what's being skipped, and — importantly — a warning listing anything already in that destination folder that would be moved to the Recycle Bin. Nothing is copied or removed until you press Start.
+  - CarbonCopy now recognises your backup drives by their hardware ID rather than their drive letter. If a drive comes back as E: instead of D:, it spots it and carries on. If a different drive takes that letter, it refuses to write to it and asks you first — previously it could have started backing up onto the wrong disk.
+  - If you rename or move a folder you're backing up, CarbonCopy now finds it and asks whether to follow it. Before, it went quiet and simply stopped backing that folder up, while the dashboard still looked perfectly healthy.
+  - New safety ceiling on removals. If a background check ever wants to remove far more than usual — because a folder moved, a drive mounted oddly, or something went wrong — it stops, touches nothing, shows you the exact list of files, and asks. Adjustable in Settings.
+  - New weekly heartbeat: if a folder hasn't backed up successfully in seven days, for any reason at all, you're told.
+  - New Issues tab. Everything that's wrong, in plain English, with buttons that fix it — instead of an error log nobody opens.
+  - New per-folder choice between Mirror and Archive. Mirror keeps the backup matching your folder (what it has always done). Archive means the backup only ever grows, so nothing you've ever had can disappear, even if you delete the original.
+  - New Recycle Bin browser. Removed files have always been recoverable, but until now the only way to reach them was through File Explorer. You can now browse and restore them inside the app.
+  - New 'Verify backup' button — checks every file against the backup and gives you a straight count rather than a status light.
+  - Removing a folder now asks whether to keep the backed-up copies (the default) or remove them, instead of a bare Yes/No.
+  - Destinations are now tested properly when you set one up — CarbonCopy writes a real file to prove it can, checks free space, and warns you if the folder isn't empty. A read-only network drive used to pass the old check and then fail every single copy quietly.
+  - After an update, CarbonCopy now waits a couple of minutes before its first background check, and tells you once if anything works differently. Your folders, destinations and settings are carried over exactly as they were.
+
+Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
+
+## Documentation
+
+Setup guides and how-tos → **[kvrnl.io/docs/carbon-copy](https://kvrnl.io/docs/carbon-copy/)**
+
+## Support
+
+- 🐛 **Found a bug?** [Open an issue](https://github.com/KVRNL/carbon-copy/issues/new/choose)
+- 💬 **Question?** [kvrnl.io/contact](https://kvrnl.io/contact/)
+- ❓ **FAQ** → [kvrnl.io/faq](https://kvrnl.io/faq/)
+
+## License
+
+**Proprietary freeware — free to use, not open source.**
+
+This repository hosts the installer releases, documentation, and license for
+CarbonCopy. **The application source code is not published.** See
+**[LICENSE](./LICENSE)** for the full terms.
 
 ---
 
-## Download & install
+<div align="center">
+<br>
 
-1. Grab the latest **`CarbonCopy-x.y.z-Setup.exe`** from the [**Releases**](../../releases/latest) page.
-2. Run it. Windows may show a blue *"Windows protected your PC"* screen because the app isn't code-signed — click **More info → Run anyway**.
-3. Follow the installer. It installs per-user (no admin needed) and can create a desktop shortcut and start with Windows.
+**[kvrnl.io](https://kvrnl.io)** &nbsp;·&nbsp; **[All products](https://kvrnl.io/products/)** &nbsp;·&nbsp; **[Changelog](https://kvrnl.io/changelog/)** &nbsp;·&nbsp; **[Contact](https://kvrnl.io/contact/)**
 
-That's it — CarbonCopy opens and drops into your system tray.
+<sub>© 2026 <b>KVRNL</b> — an AI-powered software studio shipping free desktop tools.</sub>
 
----
-
-## Quick start
-
-CarbonCopy walks you through this the first time you open it.
-
-1. On the **Destinations** tab, click **Set up…** and choose where backups should go. CarbonCopy checks it can actually write there, tells you how much room is left, and warns you if the folder isn't empty.
-2. On the **Protection** tab, click **+ Add folder**. Choose the folder, choose which destinations it goes to, then review exactly what's about to happen — file count, size, what's excluded, and anything already at the destination that would be moved to the Recycle Bin.
-3. Click **Start backing up**. Nothing is copied or removed until you do.
-
-Your files are mirrored into a subfolder named after each source folder (e.g. source `C:\Work` lands at `D:\Backup\Work\…`), so multiple sources never collide.
-
----
-
-## How it works
-
-**Real time plus a safety net.** A file watcher copies changes the instant they happen. On top of that, a periodic *sweep* re-checks every file (size and modified time) and fixes anything that drifted — edits made while CarbonCopy was closed, or while a destination was unplugged.
-
-**The Protection screen** shows each folder you're protecting and its status at every destination, so the question "am I actually backed up?" has an answer you can see at a glance.
-
-**Source folders.** Only ever read. Use **Pause** to stop watching a folder temporarily, or **Remove** to stop backing it up — you're asked whether to keep the copies (the default) or remove them.
-
-**Destinations.** Up to three. The coloured dot shows status — green = connected and syncing, orange = paused or needs checking, red = not connected, grey = turned off. If a drive drops out, the destination pauses and nothing is removed from the backup; it catches up when the drive is back.
-
-**Deleting files and the Recycle Bin.** When a file is removed from a source, its backup copy isn't erased — it's moved into a `Recycle Bin` folder inside the destination, organised by date, and kept for the **retention period** (set in Settings). Browse and restore them from **Destinations → Recycle Bin**.
-
-**When a lot is about to be removed.** A single sweep won't remove more than 500 files, or 10% of a destination, without stopping to ask (both adjustable in Settings). It shows you the exact list first. This catches the cases that matter — a folder that moved, a drive that mounted differently, or something going wrong — before they cost you anything.
-
----
-
-## Settings
-
-- **Sweep interval** — how often the background safety scan runs.
-- **Recycle Bin retention** — how long removed files are kept before being cleared.
-- **Exclude patterns** — folder/file names to skip (e.g. `node_modules`, `.git`, `Thumbs.db`).
-- **Removal ceiling** — how much a single sweep may remove before asking you.
-- **Stale backup warning** — how long a folder can go without a successful backup before you're told.
-- **Debounce and concurrent copies** — fine-tune responsiveness and speed.
-- **Start with Windows**, notifications, and **Export / Import** to move your setup to another PC.
-
----
-
-## Automatic updates
-
-CarbonCopy checks this repository's Releases about every hour. When a newer version is published, it downloads the installer and updates itself silently in the background — closing, upgrading, and relaunching to the tray with no interruption. If an update changes how something works, you're told once, on the first launch afterwards. You can also trigger a check anytime via **Check for Updates** on the Settings tab.
-
----
-
-## Running in the background
-
-Closing the window doesn't quit CarbonCopy — it tucks into the system tray and keeps backing up. **Right-click the tray icon** for *Open Dashboard*, *Pause All*, or *Exit*.
-
-Anything that goes wrong is listed in plain English on the **Issues** tab, with buttons that fix it. The underlying logs live at:
-
-```
-%AppData%\CarbonCopy\errors.log     failures
-%AppData%\CarbonCopy\sweep.log      every removal, recorded before it happens
-```
-
-Your settings live at `%AppData%\CarbonCopy\config.json`.
-
----
-
-## Notes
-
-- **Windows / .NET.** Self-contained build — no separate .NET install required.
-- **One-way mirror.** Destinations are made to match the source. Under Mirror, a file that exists in a destination's mirror folder but no longer in the source is moved to the Recycle Bin; a destination file that differs from the source is replaced by the source version. Under Archive, nothing is ever removed.
-- **Not code-signed (yet).** SmartScreen will warn on first run — *More info → Run anyway*.
-
----
-
-© KVRNL
+</div>

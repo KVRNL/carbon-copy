@@ -72,48 +72,36 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
-**v2.0.13** — 2026-08-14
-  - Fixed tooltips running off the side of the screen. The explanation text wasn't wrapping at all, so longer ones stretched into a single endless line and got cut off before you could finish reading them. They now wrap to a readable width and break into short paragraphs.
-  - Fixed the destination dropdown in the Recycle Bin being white text on white — unreadable. Windows draws drop-downs in its own light colours unless an app replaces them outright, which CarbonCopy hadn't. The same fix covers the file list's column headers and row highlighting.
+**v2.0.23** — 2026-09-25
+  - Updates now install reliably. CarbonCopy closes itself while an update installs, and on some PCs the installer could start before it had finished closing, then quietly give up. The app was gone, nothing was updated, and it looked like a crash. The installer now waits for CarbonCopy to finish closing.
+  - When you update from Settings you see the download and install progress, and CarbonCopy opens again by itself when it's done. After any update, a notification tells you which version you're on.
+  - If an update ever doesn't install, CarbonCopy tells you the next time it starts, with buttons to try again or download the installer yourself.
+  - Updates are downloaded into CarbonCopy's own folder instead of the Windows temp folder, which some antivirus programs treat as suspicious.
+  - Running the installer while CarbonCopy is open now closes it for you.
 
-**v2.0.12** — 2026-08-14
-  - Fixed the "hasn't backed up in X days" warning that wouldn't go away. A single file that couldn't be copied — a mail file, a browser database, anything another program had open — was enough to stop CarbonCopy ever recording a successful backup again. The warning then counted up forever on a folder that was, in fact, being backed up perfectly every half hour, and nothing you did would clear it. It now clears itself the moment a backup succeeds.
-  - Fixed the same warning coming straight back after restarting. The time of each successful backup was never actually being saved to disk, so every restart loaded the old date and put the warning back up.
-  - Files that can't be copied are now reported on their own, as a plain warning that names how many and points you at the log — instead of being invisible and quietly poisoning the health of the whole folder.
-  - Warnings can now be dismissed. Advisory items have an X, and dismissing one keeps it away for a week rather than for the two minutes it took the next health check to put it back. Anything that means a folder genuinely isn't protected — a disconnected drive, a missing folder — deliberately can't be hidden.
-  - Completely rebuilt the Settings screen. It was one long scroll where the two settings anyone actually changes sat in the same pile as the deletion ceiling and the debounce timer. It's now organised into pages down the side — General, Backups, Deleted files, Safety limits, Speed, Your setup — grouped by what you're trying to do rather than by which part of the code they belong to.
-  - Every setting now explains itself. Hover anything and a tooltip appears immediately, in plain English, telling you what it does and how to choose — including what the sensible default is and when you'd want something different.
-  - New How to use page inside Settings, replacing the separate help window, so the instructions no longer lock the rest of the app while you read them.
-  - New Report a bug page. Describe the problem in your own words and it goes straight to KVRNL, with your version, drive status, settings and recent log entries attached automatically — so a report doesn't turn into twenty questions. The technical details are optional and you can see exactly what's included.
-  - New About page with your version, the machine your licence is tied to, and links to your account.
+**v2.0.22** — 2026-09-25
+  - Clicking the tray icon now opens a small control panel instead of a plain menu. It shows whether everything is backed up, what CarbonCopy is doing right now, and how each backup drive is doing, with buttons to back up now, pause or resume, open Settings, or open the full window. Left and right click both open it, and a double-click still opens the full window.
+  - You can pin the panel: drag it anywhere on screen, or click its pin, and it stays open on top of your other windows, right where you put it, until you unpin it or close it with its X. It comes back in the same spot after a restart or an update.
+  - When something needs your attention, the panel lists it with a button that takes you straight to the fix.
+  - Resume after Pause all now turns back on only the drives that Pause switched off. A drive you had turned off yourself stays off.
+  - Quit asks for a second click, so a stray click in the panel can't stop your backups.
 
-**v2.0.11** — 2026-07-24
-  - Fixed the app freezing after adding a folder. The first backup was running on the same thread that draws the window, so CarbonCopy locked up with a spinning cursor until it finished — which on a large folder could be several minutes. It now runs in the background as it always should have, and the window stays responsive throughout.
-  - Fixed the same freeze in every other place it could happen: turning a destination on, changing where a folder backs up to, switching between Mirror and Archive, removing a folder and its copies, and browsing the Recycle Bin.
-  - Setting up a destination and opening the add-folder window no longer stall while they check drives. Anything that reads from a disk now happens in the background, so a slow or disconnected network drive can't hold the window hostage.
+**v2.0.21** — 2026-09-11
+  - Fixed a drive being paused with "can't be written to" because CarbonCopy could not rewrite its own small ID file on the drive. On a shared network drive that rewrite can fail simply because something has the file open at that instant. The ID file is now left alone when it is already correct, rewrites are retried and fall back to writing in place, and a file that already carries the right ID is accepted even when it cannot be replaced. Nothing was lost when this happened: the drive paused for one check and copies resumed on the next.
+  - Readers of the ID file, including other PCs that keep their backups on the same network drive, now share the file so a rewrite underneath them can go through.
 
-**v2.0.10** — 2026-07-24
-  - Mirror and Archive are now properly explained before you pick one. Clicking the setting used to flip it the instant you touched it — it now opens a window laying out both options, what each one does to your files, and which one this folder currently uses, with a Save and a Cancel.
-  - Switching a folder from Archive back to Mirror now tells you what it would cost first — it counts the files the archive has been holding on to that your folder no longer has, and shows you the number before you commit.
-  - The Protection screen now spells the setting out ('Mirror — remove it from the backup too') instead of showing a single word you'd have to guess at.
-  - Added a note making clear that CarbonCopy's Mirror is not the same thing as Google Drive's 'Mirror files' setting. They share a word and mean completely different things — Google's decides whether your cloud files are stored on your PC, ours decides what happens to a backup copy when you delete the original.
-  - CarbonCopy now warns you if you pick a cloud folder (Google Drive, OneDrive, Dropbox) to back up. Those files often live online rather than on your PC, so copying them means downloading your entire cloud account — worth knowing before it starts, not after. It also warns if you try to use one as a destination, where everything you back up would get uploaded again.
-  - Rewrote the in-app help. It was still describing two destinations and buttons that no longer exist.
+**v2.0.20** — 2026-09-05
+  - When CarbonCopy stops to ask before removing a lot of files, it now says what the files are: which folder nearly all of them are in, or the three folders most of them are in, and what that folder is when it is one CarbonCopy recognises. Before, it gave a bare count and left you to work it out from a list of thousands of paths.
+  - Leftover copies of Google Drive's temporary upload files and the Windows Recycle Bin, backed up by older versions, no longer count against the safety limit. They are tidied into the drive's Recycle Bin without a question, because they were never your data. Real removals above the limit still stop and ask.
+  - The question card now says plainly what to do: go ahead if you moved or deleted the files on purpose, and sort it out first if the folder itself has moved or a drive has come up wrongly.
 
-**v2.0.9** — 2026-07-24
-  - New Protection screen. Instead of a settings page, the app now opens on a plain answer to 'am I actually backed up?' — every folder you protect, its status at every destination, and when it was last verified.
-  - Adding a folder now shows you what's about to happen first. You pick the folder, pick where it goes (nothing is ticked for you any more), and then see the file count, the size, what's being skipped, and — importantly — a warning listing anything already in that destination folder that would be moved to the Recycle Bin. Nothing is copied or removed until you press Start.
-  - CarbonCopy now recognises your backup drives by their hardware ID rather than their drive letter. If a drive comes back as E: instead of D:, it spots it and carries on. If a different drive takes that letter, it refuses to write to it and asks you first — previously it could have started backing up onto the wrong disk.
-  - If you rename or move a folder you're backing up, CarbonCopy now finds it and asks whether to follow it. Before, it went quiet and simply stopped backing that folder up, while the dashboard still looked perfectly healthy.
-  - New safety ceiling on removals. If a background check ever wants to remove far more than usual — because a folder moved, a drive mounted oddly, or something went wrong — it stops, touches nothing, shows you the exact list of files, and asks. Adjustable in Settings.
-  - New weekly heartbeat: if a folder hasn't backed up successfully in seven days, for any reason at all, you're told.
-  - New Issues tab. Everything that's wrong, in plain English, with buttons that fix it — instead of an error log nobody opens.
-  - New per-folder choice between Mirror and Archive. Mirror keeps the backup matching your folder (what it has always done). Archive means the backup only ever grows, so nothing you've ever had can disappear, even if you delete the original.
-  - New Recycle Bin browser. Removed files have always been recoverable, but until now the only way to reach them was through File Explorer. You can now browse and restore them inside the app.
-  - New 'Verify backup' button — checks every file against the backup and gives you a straight count rather than a status light.
-  - Removing a folder now asks whether to keep the backed-up copies (the default) or remove them, instead of a bare Yes/No.
-  - Destinations are now tested properly when you set one up — CarbonCopy writes a real file to prove it can, checks free space, and warns you if the folder isn't empty. A read-only network drive used to pass the old check and then fail every single copy quietly.
-  - After an update, CarbonCopy now waits a couple of minutes before its first background check, and tells you once if anything works differently. Your folders, destinations and settings are carried over exactly as they were.
+**v2.0.19** — 2026-09-05
+  - Each backup drive now gets its own pass, all at the same time. Before, the drives were taken one after another for each folder, so a slow network drive that took an hour to list and copy held a fast local drive, and every folder queued behind it, at not backed up yet for that whole hour, while the screen said nothing had been copied.
+  - The activity bar now says what the background check is doing right now, for each drive: reading a folder, comparing it with the drive, copying so many files, tidying the Recycle Bin. A long first backup no longer looks stuck.
+  - Listing a large backup on a network drive is several times faster: folders are read several at a time instead of one round trip each.
+  - Files and folders managed by OneDrive, Google Drive or Dropbox, and files on deduplicated or compressed drives, were being skipped as if they were shortcuts. Whole folders could silently never be backed up, with no error anywhere. Only real shortcuts and junctions are skipped now.
+  - A folder that cannot be fully read now shows a clear warning naming it, instead of a line in a log file. Windows own system folders at the root of a drive and Google Drive scratch upload folders no longer count against a folder or get copied.
+  - A copy that failed because the destination folder could not be created was previously treated as if the file had simply been deleted. It is now counted and reported. Deleting a folder on your PC no longer ends with a wholesale delete on the drive: files go to the Recycle Bin one by one and only empty folders are removed.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 

@@ -71,6 +71,13 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
+**v2.0.24** — 2026-09-25
+  - The activation window has been redesigned. It now explains exactly how to get a free key on kvrnl.io, step by step, with links to the right pages and a Paste button.
+  - The activation screen is now a proper lock: nothing in CarbonCopy can be opened or run until a key is activated.
+  - Your license is now stored in a protected form that can't be edited or copied to another computer. CarbonCopy still works for up to 14 days without an internet connection.
+  - If your license stops being valid while CarbonCopy is running, backups stop straight away, including one already in progress, and a notification tells you what to do.
+  - Clearer messages for every license problem, including how to move your key when it's already in use on another PC. Pasted keys are cleaned up automatically, and pasting an email address or a link by mistake gets a helpful hint.
+
 **v2.0.23** — 2026-09-25
   - Updates now install reliably. CarbonCopy closes itself while an update installs, and on some PCs the installer could start before it had finished closing, then quietly give up. The app was gone, nothing was updated, and it looked like a crash. The installer now waits for CarbonCopy to finish closing.
   - When you update from Settings you see the download and install progress, and CarbonCopy opens again by itself when it's done. After any update, a notification tells you which version you're on.
@@ -93,14 +100,6 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
   - When CarbonCopy stops to ask before removing a lot of files, it now says what the files are: which folder nearly all of them are in, or the three folders most of them are in, and what that folder is when it is one CarbonCopy recognises. Before, it gave a bare count and left you to work it out from a list of thousands of paths.
   - Leftover copies of Google Drive's temporary upload files and the Windows Recycle Bin, backed up by older versions, no longer count against the safety limit. They are tidied into the drive's Recycle Bin without a question, because they were never your data. Real removals above the limit still stop and ask.
   - The question card now says plainly what to do: go ahead if you moved or deleted the files on purpose, and sort it out first if the folder itself has moved or a drive has come up wrongly.
-
-**v2.0.19** — 2026-09-05
-  - Each backup drive now gets its own pass, all at the same time. Before, the drives were taken one after another for each folder, so a slow network drive that took an hour to list and copy held a fast local drive, and every folder queued behind it, at not backed up yet for that whole hour, while the screen said nothing had been copied.
-  - The activity bar now says what the background check is doing right now, for each drive: reading a folder, comparing it with the drive, copying so many files, tidying the Recycle Bin. A long first backup no longer looks stuck.
-  - Listing a large backup on a network drive is several times faster: folders are read several at a time instead of one round trip each.
-  - Files and folders managed by OneDrive, Google Drive or Dropbox, and files on deduplicated or compressed drives, were being skipped as if they were shortcuts. Whole folders could silently never be backed up, with no error anywhere. Only real shortcuts and junctions are skipped now.
-  - A folder that cannot be fully read now shows a clear warning naming it, instead of a line in a log file. Windows own system folders at the root of a drive and Google Drive scratch upload folders no longer count against a folder or get copied.
-  - A copy that failed because the destination folder could not be created was previously treated as if the file had simply been deleted. It is now counted and reported. Deleting a folder on your PC no longer ends with a wholesale delete on the drive: files go to the Recycle Bin one by one and only empty folders are removed.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 

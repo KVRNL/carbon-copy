@@ -71,6 +71,9 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
+**v2.0.27** — 2026-09-26
+  - Fixed a behind-the-scenes error that could happen after your PC woke from sleep or lost its internet connection for a moment. Backups were never affected.
+
 **v2.0.26** — 2026-09-26
   - CarbonCopy can now share basic usage info with KVRNL: which features get used, a daily count of files backed up, and what kind of PC it runs on. It's linked to your license key and never includes your files, their names or folder paths.
   - Crash reports and usage info share one switch in Settings, under General.
@@ -92,13 +95,6 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
   - If an update ever doesn't install, CarbonCopy tells you the next time it starts, with buttons to try again or download the installer yourself.
   - Updates are downloaded into CarbonCopy's own folder instead of the Windows temp folder, which some antivirus programs treat as suspicious.
   - Running the installer while CarbonCopy is open now closes it for you.
-
-**v2.0.22** — 2026-09-25
-  - Clicking the tray icon now opens a small control panel instead of a plain menu. It shows whether everything is backed up, what CarbonCopy is doing right now, and how each backup drive is doing, with buttons to back up now, pause or resume, open Settings, or open the full window. Left and right click both open it, and a double-click still opens the full window.
-  - You can pin the panel: drag it anywhere on screen, or click its pin, and it stays open on top of your other windows, right where you put it, until you unpin it or close it with its X. It comes back in the same spot after a restart or an update.
-  - When something needs your attention, the panel lists it with a button that takes you straight to the fix.
-  - Resume after Pause all now turns back on only the drives that Pause switched off. A drive you had turned off yourself stays off.
-  - Quit asks for a second click, so a stray click in the panel can't stop your backups.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 

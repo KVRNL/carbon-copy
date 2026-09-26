@@ -71,6 +71,10 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
+**v2.0.25** — 2026-09-25
+  - CarbonCopy can now send KVRNL a short report when it runs into an error it didn't expect, so problems get fixed faster. File paths and email addresses are removed first, and nothing from inside your files is ever included. You can switch this off in Settings, under General.
+  - License checks now also say which version of CarbonCopy and Windows is asking, so KVRNL can see which versions are in use and spot keys being misused.
+
 **v2.0.24** — 2026-09-25
   - The activation window has been redesigned. It now explains exactly how to get a free key on kvrnl.io, step by step, with links to the right pages and a Paste button.
   - The activation screen is now a proper lock: nothing in CarbonCopy can be opened or run until a key is activated.
@@ -95,11 +99,6 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 **v2.0.21** — 2026-09-11
   - Fixed a drive being paused with "can't be written to" because CarbonCopy could not rewrite its own small ID file on the drive. On a shared network drive that rewrite can fail simply because something has the file open at that instant. The ID file is now left alone when it is already correct, rewrites are retried and fall back to writing in place, and a file that already carries the right ID is accepted even when it cannot be replaced. Nothing was lost when this happened: the drive paused for one check and copies resumed on the next.
   - Readers of the ID file, including other PCs that keep their backups on the same network drive, now share the file so a rewrite underneath them can go through.
-
-**v2.0.20** — 2026-09-05
-  - When CarbonCopy stops to ask before removing a lot of files, it now says what the files are: which folder nearly all of them are in, or the three folders most of them are in, and what that folder is when it is one CarbonCopy recognises. Before, it gave a bare count and left you to work it out from a list of thousands of paths.
-  - Leftover copies of Google Drive's temporary upload files and the Windows Recycle Bin, backed up by older versions, no longer count against the safety limit. They are tidied into the drive's Recycle Bin without a question, because they were never your data. Real removals above the limit still stop and ask.
-  - The question card now says plainly what to do: go ahead if you moved or deleted the files on purpose, and sort it out first if the folder itself has moved or a drive has come up wrongly.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 

@@ -71,6 +71,10 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
+**v2.0.26** — 2026-09-26
+  - CarbonCopy can now share basic usage info with KVRNL: which features get used, a daily count of files backed up, and what kind of PC it runs on. It's linked to your license key and never includes your files, their names or folder paths.
+  - Crash reports and usage info share one switch in Settings, under General.
+
 **v2.0.25** — 2026-09-25
   - CarbonCopy can now send KVRNL a short report when it runs into an error it didn't expect, so problems get fixed faster. File paths and email addresses are removed first, and nothing from inside your files is ever included. You can switch this off in Settings, under General.
   - License checks now also say which version of CarbonCopy and Windows is asking, so KVRNL can see which versions are in use and spot keys being misused.
@@ -95,10 +99,6 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
   - When something needs your attention, the panel lists it with a button that takes you straight to the fix.
   - Resume after Pause all now turns back on only the drives that Pause switched off. A drive you had turned off yourself stays off.
   - Quit asks for a second click, so a stray click in the panel can't stop your backups.
-
-**v2.0.21** — 2026-09-11
-  - Fixed a drive being paused with "can't be written to" because CarbonCopy could not rewrite its own small ID file on the drive. On a shared network drive that rewrite can fail simply because something has the file open at that instant. The ID file is now left alone when it is already correct, rewrites are retried and fall back to writing in place, and a file that already carries the right ID is accepted even when it cannot be replaced. Nothing was lost when this happened: the drive paused for one check and copies resumed on the next.
-  - Readers of the ID file, including other PCs that keep their backups on the same network drive, now share the file so a rewrite underneath them can go through.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 

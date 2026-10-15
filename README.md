@@ -71,6 +71,12 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
+**v2.0.28** — 2026-10-15
+  - Fixed a false alarm: a folder that was still being backed up could be reported as 'hasn't backed up in N days', with a notification every day, while the backup was in fact catching up. Each folder is now confirmed on its own the moment it is done, and the alert stays quiet while files are still being copied.
+  - Fixed automatic updates that could quietly fail while a backup was running, leaving CarbonCopy closed until your next sign-in and the backup behind. An update now waits for CarbonCopy to finish closing before it installs.
+  - The activity list no longer slows your PC down during a very large backup.
+  - Files removed from a backup now stay in its Recycle Bin for 7 days by default (it was 90). You can change this in Settings.
+
 **v2.0.27** — 2026-09-26
   - Fixed a behind-the-scenes error that could happen after your PC woke from sleep or lost its internet connection for a moment. Backups were never affected.
 
@@ -88,13 +94,6 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
   - Your license is now stored in a protected form that can't be edited or copied to another computer. CarbonCopy still works for up to 14 days without an internet connection.
   - If your license stops being valid while CarbonCopy is running, backups stop straight away, including one already in progress, and a notification tells you what to do.
   - Clearer messages for every license problem, including how to move your key when it's already in use on another PC. Pasted keys are cleaned up automatically, and pasting an email address or a link by mistake gets a helpful hint.
-
-**v2.0.23** — 2026-09-25
-  - Updates now install reliably. CarbonCopy closes itself while an update installs, and on some PCs the installer could start before it had finished closing, then quietly give up. The app was gone, nothing was updated, and it looked like a crash. The installer now waits for CarbonCopy to finish closing.
-  - When you update from Settings you see the download and install progress, and CarbonCopy opens again by itself when it's done. After any update, a notification tells you which version you're on.
-  - If an update ever doesn't install, CarbonCopy tells you the next time it starts, with buttons to try again or download the installer yourself.
-  - Updates are downloaded into CarbonCopy's own folder instead of the Windows temp folder, which some antivirus programs treat as suspicious.
-  - Running the installer while CarbonCopy is open now closes it for you.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 

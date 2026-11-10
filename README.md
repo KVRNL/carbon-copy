@@ -71,6 +71,13 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 
 ## What's new
 
+**v2.0.29** — 2026-11-10
+  - CarbonCopy now rests when nothing has changed. It used to re-check every folder against every drive every half hour, which on a large backup meant it never stopped working. Your changes are still copied the moment you save them.
+  - If something could not be copied straight away (a drive was unplugged, a file was in use), only that folder is checked again, and a file that was in use is retried by itself.
+  - A full double-check of everything now runs once a day, when CarbonCopy starts, and whenever you press Back up now.
+  - The tray panel now says 'Checking' when it is only comparing, and 'Backing up' only when files are really being copied.
+  - A burst of many changes at once is handled far better and no longer sets off a full re-check of everything.
+
 **v2.0.28** — 2026-10-15
   - Fixed a false alarm: a folder that was still being backed up could be reported as 'hasn't backed up in N days', with a notification every day, while the backup was in fact catching up. Each folder is now confirmed on its own the moment it is done, and the alert stays quiet while files are still being copied.
   - Fixed automatic updates that could quietly fail while a backup was running, leaving CarbonCopy closed until your next sign-in and the backup behind. An update now waits for CarbonCopy to finish closing before it installs.
@@ -87,13 +94,6 @@ none of your files. Full policy: **[kvrnl.io/privacy](https://kvrnl.io/privacy/)
 **v2.0.25** — 2026-09-25
   - CarbonCopy can now send KVRNL a short report when it runs into an error it didn't expect, so problems get fixed faster. File paths and email addresses are removed first, and nothing from inside your files is ever included. You can switch this off in Settings, under General.
   - License checks now also say which version of CarbonCopy and Windows is asking, so KVRNL can see which versions are in use and spot keys being misused.
-
-**v2.0.24** — 2026-09-25
-  - The activation window has been redesigned. It now explains exactly how to get a free key on kvrnl.io, step by step, with links to the right pages and a Paste button.
-  - The activation screen is now a proper lock: nothing in CarbonCopy can be opened or run until a key is activated.
-  - Your license is now stored in a protected form that can't be edited or copied to another computer. CarbonCopy still works for up to 14 days without an internet connection.
-  - If your license stops being valid while CarbonCopy is running, backups stop straight away, including one already in progress, and a notification tells you what to do.
-  - Clearer messages for every license problem, including how to move your key when it's already in use on another PC. Pasted keys are cleaned up automatically, and pasting an email address or a link by mistake gets a helpful hint.
 
 Full history → **[kvrnl.io/changelog/carbon-copy](https://kvrnl.io/changelog/carbon-copy/)**
 
